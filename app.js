@@ -175,3 +175,10 @@ var alki = {
     alkiUL.appendChild(tally);
   }
 };
+
+// calling the lists to show up on the webpage first as it loads.
+firstPike.getCookies();
+seaTac.getCookies();
+seaCenter.getCookies();
+capHill.getCookies();
+alki.getCookies();
