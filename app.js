@@ -3,6 +3,7 @@
 // min number of customers per hour
 // max number of customers per hour
 // average number of cookies purchased per customer
+
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 var firstPike = {
@@ -20,6 +21,7 @@ var firstPike = {
     return cookies;
   },
   getCookies: function() {
+    this.cookiesArray = [];
     for (var i in openHours) {
       var cookiesSold = this.averageCookieSold();
       var liEl = document.createElement('li');
@@ -28,6 +30,12 @@ var firstPike = {
       pikeUl.appendChild(liEl);
       this.cookiesArray.push(cookiesSold);
     };
+    var total = 0;
+    for (var j = 0; j < this.cookiesArray.length; j ++) {
+      total = total + this.cookiesArray[j];
+    }
+    liEl.textContent = 'Total Cookies: ' + total;
+    pikeUl.appendChild(liEl);
   }
 };
 
