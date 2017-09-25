@@ -20,7 +20,7 @@ var firstPike = {
     var cookies = Math.round(this.randomCustomers() * this.cookiePerCustomer);
     return cookies;
   },
-  getCookies: function() {
+  getCookies: function() { // gets cookies sold per hour(cPh), adds to <li id="pike"> adds the cPh to the array 'cookiesArray' then tally's up the total.
     this.cookiesArray = []; // resets cookiesArray to an empty array before initializing a new array
     for (var i in openHours) {
       var cookiesSold = this.averageCookieSold(); // runs the method for random cookies
@@ -67,7 +67,7 @@ var seaTac = {
     var total = 0;
     for (var j = 0; j < this.cookiesArray.length; j ++) {
       total = total + this.cookiesArray[j];
-    }
+    };
     var tally = document.createElement('li');
     tally.textContent = 'Total: ' + total;
     seaTacUl.appendChild(tally);
@@ -82,7 +82,7 @@ var seaCenter = {
   randomCustomers: function() {
     var min = Math.ceil(this.minCustomers);
     var max = Math.floor(this.maxCustomers);
-    return Math.floor(Math.random() * (max - min - 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   },
   averageCookieSold: function() {
     var cookies = Math.round(this.randomCustomers() * this.cookiePerCustomer);
@@ -101,7 +101,7 @@ var seaCenter = {
     var total = 0;
     for (var j = 0; j < this.cookiesArray.length; j ++) {
       total = total + this.cookiesArray[j];
-    }
+    };
     var tally = document.createElement('li');
     tally.textContent = 'Total: ' + total;
     seaCenterUl.appendChild(tally);
@@ -116,7 +116,7 @@ var capHill = {
   randomCustomers: function() {
     var min = Math.ceil(this.minCustomers);
     var max = Math.floor(this.maxCustomers);
-    return Math.floor(Math.random() * (max - min - 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   },
   averageCookieSold: function() {
     var cookies = Math.round(this.randomCustomers() * this.cookiePerCustomer);
@@ -135,7 +135,7 @@ var capHill = {
     var total = 0;
     for (var j = 0; j < this.cookiesArray.length; j ++) {
       total = total + this.cookiesArray[j];
-    }
+    };
     var tally = document.createElement('li');
     tally.textContent = 'Total ' + total;
     capHillUL.appendChild(tally);
@@ -146,5 +146,32 @@ var alki = {
   minCustomers: 2,
   maxCustomers: 16,
   cookiePerCustomer: 4.6,
-  cookiesArray: []
+  cookiesArray: [],
+  randomCustomers: function() {
+    var min = Math.ceil(this.minCustomers);
+    var max = Math.floor(this.maxCustomers);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  averageCookieSold: function() {
+    var cookies = Math.round(this.randomCustomers() * this.cookiePerCustomer);
+    return cookies;
+  },
+  getCookies: function() {
+    this.cookiesArray = [];
+    for (var i in openHours) {
+      var cookiesSold = this.averageCookieSold();
+      var liElement = document.createElement('li');
+      liElement.textContent = openHours[i] + ': ' + cookiesSold + ' cookies.';
+      var alkiUL = document.getElementById('alki');
+      alkiUL.appendChild(liElement);
+      this.cookiesArray.push(cookiesSold);
+    };
+    var total = 0;
+    for (var j = 0; j < this.cookiesArray.length; j ++) {
+      total = total + this.cookiesArray[j];
+    };
+    var tally = document.createElement('li');
+    tally.textContent = 'Total: ' + total;
+    alkiUL.appendChild(tally);
+  }
 };
