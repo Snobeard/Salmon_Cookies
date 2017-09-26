@@ -55,12 +55,12 @@ AddLocation.prototype.listCookies = function() {
     idUl.appendChild(liElement); // attaches the given content at the end of the list
   };
 
-  var total = 0; // gives the sum of the cookie array
 
+  // adds the total of the cookies
+  var total = 0; // gives the sum of the cookie array a variable
   for (var j = 0; j < this.cookiesArray.length; j ++) {
     total = total + this.cookiesArray[j]; // adds the next cookie in the array to the total
   };
-
   var tally = document.createElement('li');
   tally.textContent = 'Total: ' + total; // prints out the total in a list below the list of hours
   idUl.appendChild(tally);
@@ -107,8 +107,3 @@ new AddLocation('SeaTac Airport', 3, 24, 1.2, 'airport');
 new AddLocation('Seattle Center', 11, 38, 3.7, 'seaCenter');
 new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
 new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
-
-// calling the lists to show up on the webpage first as it loads.
-// for (var i in locations) {
-//   locations[i].getCookiesList();
-// };

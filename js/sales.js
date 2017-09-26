@@ -1,6 +1,7 @@
 'use strict';
 
-// calling the lists to show up on the webpage first as it loads.
+// // sets up web page
 for (var i in locations) {
-  locations[i].getCookiesList();
+  locations[i].getCookies();
+  locations[i].listCookies();
 };
