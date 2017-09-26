@@ -6,6 +6,7 @@
 
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var locations = [];
+var cookieTable = document.getElementById('cookieTable');
 
 var AddLocation = function(name, min, max, cpCustomer, id) {
   this.name = name;
@@ -48,6 +49,32 @@ AddLocation.prototype.getCookies = function() {
   this.totalCookies = total; // attaches the given content at the end of the list chosen above
 };
 
+AddLocation.prototype.addHeader = function() {
+  var trEl = document.createElement('tr');
+
+  var thEl = document.createElement('th'); // empty top-left corner of table
+  thEl.textContent = '';
+  trEl.appendChild(thEl);
+
+  for (var i in openHours) {
+    thEl = document.createElement('th');
+    thEl.textContent = openHours[i];
+    trEl.appendChild(thEl);
+  };
+
+  cookieTable.appendChild(trEl);
+};
+
+AddLocation.prototype.getCookiesTable = function() {
+  var trEl = document.createElement('tr');
+
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.name;
+  trEl.appendChild(tdEl);
+
+  cookieTable.appendChild(trEl);
+};
+
 new AddLocation('First and Pike', 23, 65, 6.3, 'pike'); // Constructor('Name', minimum, maximum, cookiesPer, id);
 new AddLocation('SeaTac Airport', 3, 24, 1.2, 'airport');
 new AddLocation('Seattle Center', 11, 38, 3.7, 'seaCenter');
@@ -55,6 +82,6 @@ new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
 new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
 
 // calling the lists to show up on the webpage first as it loads.
-for (var i in locations) {
-  locations[i].getCookies();
-};
+// for (var i in locations) {
+//   locations[i].getCookies();
+// };
