@@ -20,34 +20,53 @@ var AddLocation = function(name, min, max, cpCustomer, id) {
 
   locations.push(this);
 };
+
+// finds random number between min and max customers
 AddLocation.prototype.randomCustomers = function() {
   var min = Math.ceil(this.minCustomers);
   var max = Math.floor(this.maxCustomers);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+// finds the average cookies sold depending on random customer and rate
 AddLocation.prototype.averageCookieSold = function() {
   var cookies = Math.round(this.randomCustomers() * this.cookiePerCustomer);
   return cookies;
 };
+
+// pushes random cookies into the empty array.
 AddLocation.prototype.getCookies = function() {
   this.cookiesArray = []; // resets cookiesArray to an empty array before initializing a new array
-  for (var i in openHours) {
+
+  for (var i = 0; i < openHours.length; i ++) {
     var cookiesSold = this.averageCookieSold(); // runs the method for random cookies
-    var liElement = document.createElement(this.element); // creates the <li></li> element
-    liElement.textContent = openHours[(i)] + ': ' + cookiesSold + ' cookies.'; // creates content for the list element
-    var idUl = document.getElementById(this.id); // chooses list determined upon the id
-    idUl.appendChild(liElement); // attaches the given content at the end of the list
     this.cookiesArray.push(cookiesSold); // adds the random cookies generated to an array
   };
+};
+
+// lists the cookies according to the id
+AddLocation.prototype.listCookies = function() {
+  var cookiesSold = this.cookiesArray;
+
+  for (var i in openHours) {
+    var liElement = document.createElement(this.element); // creates the <li></li> element
+    liElement.textContent = openHours[(i)] + ': ' + cookiesSold[i] + ' cookies.'; // creates content for the list element
+    var idUl = document.getElementById(this.id); // chooses list determined upon the id
+    idUl.appendChild(liElement); // attaches the given content at the end of the list
+  };
+
   var total = 0; // gives the sum of the cookie array
+
   for (var j = 0; j < this.cookiesArray.length; j ++) {
     total = total + this.cookiesArray[j]; // adds the next cookie in the array to the total
   };
+
   var tally = document.createElement('li');
   tally.textContent = 'Total: ' + total; // prints out the total in a list below the list of hours
   idUl.appendChild(tally);
   this.totalCookies = total; // attaches the given content at the end of the list chosen above
 };
+
 
 AddLocation.prototype.addHeader = function() {
   var trEl = document.createElement('tr');
@@ -65,15 +84,23 @@ AddLocation.prototype.addHeader = function() {
   cookieTable.appendChild(trEl);
 };
 
-AddLocation.prototype.getCookiesTable = function() {
+
+AddLocation.prototype.tableCookies = function() {
   var trEl = document.createElement('tr');
 
   var tdEl = document.createElement('td');
   tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
 
+  for (var i in this.cookiesArray) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.cookiesArray[i];
+    trEl.appendChild(tdEl);
+  };
+
   cookieTable.appendChild(trEl);
 };
+
 
 new AddLocation('First and Pike', 23, 65, 6.3, 'pike'); // Constructor('Name', minimum, maximum, cookiesPer, id);
 new AddLocation('SeaTac Airport', 3, 24, 1.2, 'airport');
@@ -83,5 +110,5 @@ new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
 
 // calling the lists to show up on the webpage first as it loads.
 // for (var i in locations) {
-//   locations[i].getCookies();
+//   locations[i].getCookiesList();
 // };
