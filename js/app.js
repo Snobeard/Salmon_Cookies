@@ -7,6 +7,7 @@
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var locations = [];
 var cookieTable = document.getElementById('cookieTable');
+var totals = [];
 
 var AddLocation = function(name, min, max, cpCustomer, id) {
   this.name = name;
@@ -14,6 +15,7 @@ var AddLocation = function(name, min, max, cpCustomer, id) {
   this.maxCustomers = max;
   this.cookiePerCustomer = cpCustomer;
   this.cookiesArray = [];
+  this.hourlyCookies = [];
   this.totalCookies;
   this.element = 'li';
   this.id = id;
@@ -47,6 +49,7 @@ AddLocation.prototype.getCookies = function() {
   for (var j = 0; j < this.cookiesArray.length; j ++) {
     this.totalCookies = this.totalCookies + this.cookiesArray[j]; // sums up all the random cookies
   };
+  this.hourlyCookies.push(this.totalCookies);
 };
 
 // lists the cookies according to the id
@@ -109,6 +112,18 @@ AddLocation.prototype.tableCookies = function() {
 
   cookieTable.appendChild(trEl);
 };
+
+
+//
+// var trEl = document.createElement('tr');
+// trEl.id = 'totalsRow';
+// for (var i = 1; i < openHours.length; i ++) {
+//   var tdEl  = document.createElement('td');
+//   tdEl.id = 'list' + i;
+//   tdEl.textContent = 'Test';
+//   listArray.push(tdEl);
+// }
+
 
 // AddLocation.prototype.sumUp = function() {
 //   var totals = ['Totals'];
