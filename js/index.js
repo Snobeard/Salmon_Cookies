@@ -6,3 +6,4 @@ for (var i in locations) {
   locations[i].getCookies();
   locations[i].tableCookies();
 };
+addTotals();
