@@ -1,5 +1,7 @@
 * {
   border: red solid 1px;
+  padding: 0px;
+  margin: 0px;
 }
 td {
   padding: 5px;

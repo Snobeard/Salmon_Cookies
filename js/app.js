@@ -42,29 +42,31 @@ AddLocation.prototype.getCookies = function() {
     var cookiesSold = this.averageCookieSold(); // runs the method for random cookies
     this.cookiesArray.push(cookiesSold); // adds the random cookies generated to an array
   };
+
+  this.totalCookies = 0;
+  for (var j = 0; j < this.cookiesArray.length; j ++) {
+    this.totalCookies = this.totalCookies + this.cookiesArray[j]; // sums up all the random cookies
+  };
 };
 
 // lists the cookies according to the id
 AddLocation.prototype.listCookies = function() {
   var cookiesSold = this.cookiesArray;
+  var title = document.createElement('ul');
+  title.textContent = this.name;
+  var list = document.getElementById('lists');
+  list.appendChild(title);
 
   for (var i in openHours) {
     var liElement = document.createElement(this.element); // creates the <li></li> element
     liElement.textContent = openHours[(i)] + ': ' + cookiesSold[i] + ' cookies.'; // creates content for the list element
-    var idUl = document.getElementById(this.id); // chooses list determined upon the id
-    idUl.appendChild(liElement); // attaches the given content at the end of the list
+    ; // chooses list determined upon the id
+    title.appendChild(liElement); // attaches the given content at the end of the list
   };
 
-
-  // adds the total of the cookies
-  var total = 0; // gives the sum of the cookie array a variable
-  for (var j = 0; j < this.cookiesArray.length; j ++) {
-    total = total + this.cookiesArray[j]; // adds the next cookie in the array to the total
-  };
   var tally = document.createElement('li');
-  tally.textContent = 'Total: ' + total; // prints out the total in a list below the list of hours
-  idUl.appendChild(tally);
-  this.totalCookies = total; // attaches the given content at the end of the list chosen above
+  tally.textContent = 'Total: ' + this.totalCookies; // prints out the total in a list below the list of hours
+  title.appendChild(tally);
 };
 
 
@@ -80,6 +82,10 @@ AddLocation.prototype.addHeader = function() {
     thEl.textContent = openHours[i];
     trEl.appendChild(thEl);
   };
+
+  thEl = document.createElement('th');
+  thEl.textContent = 'Total';
+  trEl.appendChild(thEl);
 
   cookieTable.appendChild(trEl);
 };
@@ -97,6 +103,9 @@ AddLocation.prototype.tableCookies = function() {
     tdEl.textContent = this.cookiesArray[i];
     trEl.appendChild(tdEl);
   };
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.totalCookies;
+  trEl.appendChild(tdEl);
 
   cookieTable.appendChild(trEl);
 };
