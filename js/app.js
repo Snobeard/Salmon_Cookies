@@ -110,9 +110,39 @@ AddLocation.prototype.tableCookies = function() {
   cookieTable.appendChild(trEl);
 };
 
+// AddLocation.prototype.sumUp = function() {
+//   var totals = ['Totals'];
+//
+//   for (var j in locations[i].cookiesArray) {
+//     var sum = 0;
+//     for (var i in locations) {
+//       sum = sum + locations[i].cookiesArray[j];
+//     };
+//     totals.push(sum);
+//   };
+//
+//   for (var i = 1; i < totals.length; i ++) {
+//     var footer = document.getElementsByTagName('tfoot')[i];
+//     var footData = document.createElement('td').innerHTML = '';
+//     footData.textContent = 'child test';
+//     footer.appendChild(footData);
+//   };
+//   cookieTable.appendChild(footer);
+// };
+//
+// AddLocation.prototype.addTotals = function() {
+//   var trEl = document.createElement('tfoot');
+//
+//   var tdEl = document.createElement('td');
+//   tdEl.textContent = 'Totals';
+//   trEl.appendChild(tdEl);
+//
+//   tfoot.appendChild(trEl);
+// };
 
 new AddLocation('First and Pike', 23, 65, 6.3, 'pike'); // Constructor('Name', minimum, maximum, cookiesPer, id);
 new AddLocation('SeaTac Airport', 3, 24, 1.2, 'airport');
 new AddLocation('Seattle Center', 11, 38, 3.7, 'seaCenter');
 new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
 new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
+new AddLocation('Totals', 0, 0, 0, 'totals');
