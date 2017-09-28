@@ -10,7 +10,6 @@ var cookieData = document.getElementById('cookieContent');
 var cookieTotal = document.getElementById('sum');
 var totals = [];
 var salmonForm = document.getElementById('salmonForm');
-var submit = document.getElementById('submitLocation');
 
 var AddLocation = function(name, min, max, cpCustomer, id) {
   this.name = name;
@@ -43,13 +42,13 @@ AddLocation.prototype.averageCookieSold = function() {
 // pushes random cookies into the empty array.
 AddLocation.prototype.getCookies = function() {
   this.cookiesArray = []; // resets cookiesArray to an empty array before initializing a new array
+  this.totalCookies = 0;
 
   for (var i = 0; i < openHours.length; i ++) {
     var cookiesSold = this.averageCookieSold(); // runs the method for random cookies
     this.cookiesArray.push(cookiesSold); // adds the random cookies generated to an array
   };
 
-  this.totalCookies = 0;
   for (var j = 0; j < this.cookiesArray.length; j ++) {
     this.totalCookies = this.totalCookies + this.cookiesArray[j]; // sums up all the random cookies
   };
@@ -124,7 +123,10 @@ function sumTotals() {
     var sum = 0;
     for (var j = 0; j < locations.length; j ++) {
       sum = sum + locations[j].cookiesArray[i];
+      console.log('location selected: ' + locations[j].name);
+      console.log('number in location: ' + locations[j].cookiesArray[i]);
     };
+    console.log('sum to be pushed:------------------- ' + sum);
     totals.push(sum);
   };
 };
@@ -161,19 +163,45 @@ function handleSubmit(event) {
   var minCust = event.target.minCust.value;
   var maxCust = event.target.maxCust.value;
   var cpPerson = event.target.cookiesPerPerson.value;
-  var id = name.split(' ')[0].charAt(0) + name.split(' ')[1]
+  var id = name.split(' ')[0].charAt(0) + name.split(' ')[1];
   id = id.replace(id.charAt(1), id.charAt(1).toUpperCase());
 
+  if (!name) {
+    return alert('Please Enter a name.');
+  };
+  if (!minCust) {
+    return alert('Please specify the \'minimum\' amount of customers per hour.');
+  } else if (isNaN(parseInt(minCust))) {
+    return alert('Minimum customers: \'' + minCust + '\' is not the right format\nPlease use an integer.');
+  }
+  if (!maxCust) {
+    return alert('Please specify the \'maximum\' amount of customers per hour.');
+  } else if (isNaN(parseInt(maxCust))) {
+    return alert('Maximum customers: \'' + maxCust + '\' is not the right format\nPlease use an integer.');
+  }
+  if (!cpPerson) {
+    return alert('Please enter an average cookie per customer rate.');
+  } else if (isNaN(parseInt(cpPerson))) {
+    return alert('Cookies per customer: \'' + cpPerson + '\' is not the right format\nPlease use an integer.');
+  }
 
-  console.log(name);
-  console.log(minCust);
-  console.log(maxCust);
-  console.log(cpPerson);
-  console.log(id);
+
+  console.log('Location name is: ' + name);
+  console.log('Minimum customers: ' + minCust);
+  console.log('Maximum customers: ' + maxCust);
+  console.log('Average cookiers per: ' + cpPerson);
+  console.log('Id given to the location: ' + id);
   new AddLocation(name, minCust, maxCust, cpPerson, id);
 
   cookieData.innerHTML = null;
   cookieTotal.innerHTML = null;
+
+  locations[0].addHeader();
+  locations[locations.length - 1].getCookies();
+  for (var i = 0; i < locations.length; i ++) {
+    locations[i].tableCookies();
+  };
+  addTotals();
 }
 
 new AddLocation('First and Pike', 23, 65, 6.3, 'pike'); // Constructor('Name', minimum, maximum, cookiesPer, id);
@@ -183,4 +211,3 @@ new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
 new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
 
 salmonForm.addEventListener('submit', handleSubmit);
-submit.addEventListener('click', )
