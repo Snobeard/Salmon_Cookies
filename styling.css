@@ -12,16 +12,50 @@ td {
   padding: 5px;
 }
 img {
-  border: black solid 1px;
+  display: inline-block;
+  max-height: 80%;
+  /*margin-bottom: 45px;*/
+  /*border: black solid 1px;*/
+  vertical-align: middle;
+  width: 10%;
+}
+#mainFish {
+  width: 15%;
 }
 header {
+  display: inline-block;
+  height: 100px;
   background-color: lightblue;
-  border: green solid 1px;
+  /*border: green solid 1px;*/
+}
+#headerText {
+  display: inline-block;
+  /*border: 2px green solid;*/
+  width: 40%;
+  height: 50px;
+}
+h1 {
+  font-family: 'Indie Flower', cursive;
+  letter-spacing: .2vw;
+  font-size: 2.5vw;
+  position: absolute;
+  width: 20%;
+  top: -0.2vw;
+  right: 22%;
+}
+h2 {
+  font-family: 'Dancing Script', cursive;
+  position: absolute;
+  font-size: 1.5vw;
+  width: 20%;
+  top: 2.2vw;
+  right: 12%;
 }
 nav {
   display: inline-block;
   background-color: lightgray;
-  padding: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   width: 100%;
 }
 nav a {
