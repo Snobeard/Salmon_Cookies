@@ -123,10 +123,7 @@ function sumTotals() {
     var sum = 0;
     for (var j = 0; j < locations.length; j ++) {
       sum = sum + locations[j].cookiesArray[i];
-      console.log('location selected: ' + locations[j].name);
-      console.log('number in location: ' + locations[j].cookiesArray[i]);
     };
-    console.log('sum to be pushed:------------------- ' + sum);
     totals.push(sum);
   };
 };
@@ -178,6 +175,8 @@ function handleSubmit(event) {
     return alert('Please specify the \'maximum\' amount of customers per hour.');
   } else if (isNaN(parseInt(maxCust))) {
     return alert('Maximum customers: \'' + maxCust + '\' is not the right format\nPlease use an integer.');
+  } else if (minCust > maxCust) {
+    return alert('Error, \'minimum\' customers cannot exceed \'maximum\' customers');
   }
   if (!cpPerson) {
     return alert('Please enter an average cookie per customer rate.');

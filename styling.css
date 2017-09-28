@@ -11,6 +11,9 @@ td {
   border: black 1px solid;
   padding: 5px;
 }
+#fixedHeight {
+  height: 246px;
+}
 img {
   border: black solid 1px;
 }
