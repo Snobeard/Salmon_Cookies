@@ -20,10 +20,33 @@
       <a href="sales.html"><span>Sales</span></a>
     </nav>
 
-    <table id="cookieTable">
-      <thead id="cookieContent"></thead>
-      <tfoot id="sum"></tfoot>
-    </table>
+    <form id="salmonForm">
+      <fieldset>
+        <legend>Salmon Cookies</legend>
+
+        <label for="name">Location Name</label> <!-- input field for the name -->
+        <input type="text" name="name" />
+
+        <label for="minCust">Min. Customers/hr</label>
+        <input type="text" name="minCust" />
+
+        <label for="maxCust">Max. Customers/hr</label>
+        <input type="text" name="maxCust" />
+
+        <label for="cookiesPerPerson">Cookies per Person</label>
+        <input type="text" name="cookiesPerPerson" />
+
+        <button type="submitLocation" name="button">Add Location</button>
+
+
+
+
+        <table id="cookieTable">
+          <thead id="cookieContent"></thead>
+          <tfoot id="sum"></tfoot>
+        </table>
+      </fieldset>
+    </form>
 
     <script src ="js\app.js" type="text/javascript"></script>
     <script src ="js\index.js" type="text/javascript"></script>

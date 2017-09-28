@@ -9,7 +9,8 @@ var locations = [];
 var cookieData = document.getElementById('cookieContent');
 var cookieTotal = document.getElementById('sum');
 var totals = [];
-// var locationCookies = [];
+var salmonForm = document.getElementById('salmonForm');
+var submit = document.getElementById('submitLocation');
 
 var AddLocation = function(name, min, max, cpCustomer, id) {
   this.name = name;
@@ -109,35 +110,14 @@ AddLocation.prototype.tableCookies = function() {
     tdEl.textContent = this.cookiesArray[i];
     trEl.appendChild(tdEl);
   };
-  tdEl = document.createElement('td');
-  tdEl.textContent = this.totalCookies;
-  trEl.appendChild(tdEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = this.totalCookies;
+  trEl.appendChild(thEl);
 
   cookieData.appendChild(trEl);
 };
 
-
-
-// var trEl = document.createElement('tr');
-// trEl.id = 'totalsRow';
-// for (var i = 1; i < openHours.length; i ++) {
-//   var tdEl  = document.createElement('td');
-//   tdEl.id = 'list' + i;
-//   tdEl.textContent = 'Test';
-//   listArray.push(tdEl);
-// }
-
-// for (i = 0; i < locations[0].cookiesArray.length; i ++) {
-//   var sum = 0;
-//
-//   for (j = 0; j < locations.length; j ++) {
-//     sum = sum + locations[j].cookiesArray[i];
-//     if (j = locations.length + 1) {
-//       totals.push(sum);
-//     };
-//   };
-// };
-var sumTotals = function() {
+function sumTotals() {
   totals = [];
 
   for (var i = 0; i < locations[0].cookiesArray.length; i ++) {
@@ -148,44 +128,59 @@ var sumTotals = function() {
     totals.push(sum);
   };
 };
-//
-// var sum = function(index, rate) {
-//   for (var j = 0; j < index.length; j ++) {
-//     sum = sum + locations[j].cookiesArray[i];
-//   };
-// };
-// //
-//   for (var i = 1; i < totals.length; i ++) {
-//     var footer = document.getElementsByTagName('tfoot')[i];
-//     var footData = document.createElement('td').innerHTML = '';
-//     footData.textContent = 'child test';
-//     footer.appendChild(footData);
-//   };
-//   cookieData.appendChild(footer);
-// };
-// //
-var addTotals = function() { // eslint-disable-line
+
+function addTotals() { // eslint-disable-line
   sumTotals();
   var trEl = document.createElement('tr');
   trEl.id = 'totalRow';
 
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Totals';
-  trEl.appendChild(tdEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Totals';
+  trEl.appendChild(thEl);
 
   for (var i = 0; i < locations[0].cookiesArray.length; i ++) {
-    tdEl = document.createElement('td');
-    tdEl.textContent = totals[i];
-    trEl.appendChild(tdEl);
+    thEl = document.createElement('th');
+    thEl.textContent = totals[i];
+    trEl.appendChild(thEl);
   };
-  tdEl = document.createElement('td');
-  tdEl.textContent =
+  thEl = document.createElement('th');
+  var sum = 0;
 
+  for (var j = 0; j < locations.length; j ++) {
+    sum = sum + locations[j].totalCookies;
+  };
+  thEl.textContent = sum;
+  trEl.appendChild(thEl);
   cookieTotal.appendChild(trEl);
 };
+
+function handleSubmit(event) {
+  event.preventDefault(); // prevents page reload;
+
+  var name = event.target.name.value;
+  var minCust = event.target.minCust.value;
+  var maxCust = event.target.maxCust.value;
+  var cpPerson = event.target.cookiesPerPerson.value;
+  var id = name.split(' ')[0].charAt(0) + name.split(' ')[1]
+  id = id.replace(id.charAt(1), id.charAt(1).toUpperCase());
+
+
+  console.log(name);
+  console.log(minCust);
+  console.log(maxCust);
+  console.log(cpPerson);
+  console.log(id);
+  new AddLocation(name, minCust, maxCust, cpPerson, id);
+
+  cookieData.innerHTML = null;
+  cookieTotal.innerHTML = null;
+}
 
 new AddLocation('First and Pike', 23, 65, 6.3, 'pike'); // Constructor('Name', minimum, maximum, cookiesPer, id);
 new AddLocation('SeaTac Airport', 3, 24, 1.2, 'airport');
 new AddLocation('Seattle Center', 11, 38, 3.7, 'seaCenter');
 new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
 new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
+
+salmonForm.addEventListener('submit', handleSubmit);
+submit.addEventListener('click', )
