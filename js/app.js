@@ -116,6 +116,7 @@ AddLocation.prototype.tableCookies = function() {
   cookieData.appendChild(trEl);
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function sumTotals() {
   totals = [];
 
@@ -128,6 +129,7 @@ function sumTotals() {
   };
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function addTotals() { // eslint-disable-line
   sumTotals();
   var trEl = document.createElement('tr');
@@ -153,6 +155,7 @@ function addTotals() { // eslint-disable-line
   cookieTotal.appendChild(trEl);
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function handleSubmit(event) {
   event.preventDefault(); // prevents page reload;
 
@@ -194,6 +197,10 @@ function handleSubmit(event) {
 
   cookieData.innerHTML = null;
   cookieTotal.innerHTML = null;
+  event.target.name.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.cookiesPerPerson.value = null;
 
   locations[0].addHeader();
   locations[locations.length - 1].getCookies();
