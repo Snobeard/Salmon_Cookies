@@ -1,76 +1,153 @@
 * {
-  /*border: red solid 1px;*/
+/*   border: 1px red solid; */
   padding: 0px;
   margin: 0px;
 }
-table {
+body {
+  background-image: url("img/water.jpg");
+}
+body, html {
+  min-width: 850px;
+}
+#headerText {
+  position: relative;
+}
+h1 {
+  color:aliceblue;
+  min-width: 258px;
+  font-family: 'Indie Flower';
+}
+h2 {
+  color:aliceblue;
+  position: absolute;
+  min-width: 208px;
+  font-family: 'Dancing Script';
+  left: 50px;
+
+}
+header {
+  background-color: #888;
+  border: 1px #888 solid;
+  width: 99.87%;
+  min-width: 850px;
+  height: 130px;
+}
+.container-content {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  max-width: 90%;
+  min-width: 850px;
+  margin: auto;
+  margin-top: 12px;
+}
+nav {
+  background-image: url("img/nav.jpg");
+  background-size: auto  100%;
+  height: 40px;
+  min-width: 730px;
+}
+ul {
+  display: flex;
+  justify-content: center;
+}
+li {
+  padding: 10px;
+  margin: 0px 5px;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  padding: 6px;
+  box-shadow: 0.6px 0.6px 0 1px #4290e2;
+}
+a:hover {
+  background-color: #42ddf2;
+}
+a:active {
+  box-shadow: -0.6px -0.6px 0 1px #4290e2;
+}
+img {
+  align-self: center;
+  max-height: 100px;
+}
+
+#salmonForm {
+  display: flex;
+/*   justify-content: center; */
+/*   min-width: 800px; */
+   margin: 5%;
+}
+fieldset {
+  background-image: url("img/nav.jpg");
+  background-size: auto 100%;
+/*   display: flex; */
+  width: 803px;
+  margin: 40px auto;
+}
+legend {
+  background-color: salmon;
+  border-radius: 9px;
+  color: darkgreen;
+  box-shadow: 0 2px #999;
+  margin: 5px;
+  padding: 4px;
+}
+
+.input {
+  display: inline-block;
+  width: 171px;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+button {
+  margin: 10px 0px 30px 20px;
+}
+#cookieTable {
+  margin: 20px;
   border-collapse: collapse;
 }
 td {
-  background-color: white;
-  border: black 1px solid;
+  border: 1px #888 solid;
+  padding: 5px;
+  text-align: center;
+}
+th {
+  border: 1px black solid;
   padding: 5px;
 }
-img {
-  display: inline-block;
-  max-height: 80%;
-  /*margin-bottom: 45px;*/
-  /*border: black solid 1px;*/
-  vertical-align: middle;
-  width: 10%;
+
+  width: 803px;
+  margin: 40px auto;
 }
-#mainFish {
-  width: 15%;
-}
-header {
-  display: inline-block;
-  height: 100px;
-  background-color: lightblue;
-  /*border: green solid 1px;*/
-}
-#headerText {
-  display: inline-block;
-  /*border: 2px green solid;*/
-  width: 40%;
-  height: 50px;
-}
-h1 {
-  font-family: 'Indie Flower', cursive;
-  letter-spacing: .2vw;
-  font-size: 2.5vw;
-  position: absolute;
-  width: 20%;
-  top: -0.2vw;
-  right: 22%;
-}
-h2 {
-  font-family: 'Dancing Script', cursive;
-  position: absolute;
-  font-size: 1.5vw;
-  width: 20%;
-  top: 2.2vw;
-  right: 12%;
-}
-nav {
-  display: inline-block;
-  background-color: lightgray;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  width: 100%;
-}
-nav a {
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 10px;
-  background-color: #ff421e;
-  color: white;
-  padding: 5px;
+legend {
+  background-color: salmon;
+  border-radius: 9px;
+  color: darkgreen;
+  box-shadow: 0 2px #999;
   margin: 5px;
-  width: 100px;
+  padding: 4px;
 }
-nav :hover :after {
-  content: ' \00bb';
-  /*background-color: blue;*/
-  font-size: 16px;
-  /*padding-right: 10px;*/
+
+.input {
+  display: inline-block;
+  width: 171px;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+button {
+  margin: 10px 0px 30px 20px;
+}
+#cookieTable {
+  margin: 20px;
+  border-collapse: collapse;
+}
+td {
+  border: 1px #888 solid;
+  padding: 5px;
+  text-align: center;
+}
+th {
+  border: 1px black solid;
+  padding: 5px;
 }

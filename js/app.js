@@ -130,7 +130,7 @@ function sumTotals() {
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function addTotals() { // eslint-disable-line
+function addTotals() {
   sumTotals();
   var trEl = document.createElement('tr');
   trEl.id = 'totalRow';
@@ -217,3 +217,10 @@ new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
 new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
 
 salmonForm.addEventListener('submit', handleSubmit);
+
+locations[0].addHeader();
+for (var i in locations) {
+  locations[i].getCookies();
+  locations[i].tableCookies();
+};
+addTotals();
