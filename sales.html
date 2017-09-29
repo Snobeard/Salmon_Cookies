@@ -2,30 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>cookie-stand info</title>
-    <link rel="shortcut icon" href="img\salmon.png">
+    <title>Salmon Cookies!</title>
+    <link rel="shortcut icon" href="img\sales-page.png">
     <link rel="stylesheet" href="styling.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower" rel="stylesheet">
-
   </head>
+
   <body>
-    <header>
-      <img id="mainFish" src="img\salmon.png" alt="A picture of a large salmon.">
-      <img src="img\arrow.png" alt="Arrow combining pictures.">
-      <img id="ground-salmon" src="img\blended-salmon.jpg" alt="A picture of salmon blended in a food processor.">
-      <img src="img\arrow.png" alt="Arrow combining pictures.">
-      <img id="salmon-cookies" src="img\salmon-cookies.jpg" alt="A picture of perfectly baked salmon cookies!">
-      <div id="headerText">
-        <h1>Salmon Cookies</h1>
-        <h2>Ain't nothin' better...<h2>
+    <header> <!-- header -->
+      <div class="container-content">
+        <img id="salmon" src="img\salmon.png" alt="A picture of a large salmon.">
+
+        <div id="headerText">
+          <h1>Salmon Cookies</h1>
+          <h2>Ain't nothin' better...<h2>
+        </div>
+
+        <img id="chinook" src="img\chinook.png" alt="A picture of a large chinook salmon.">
       </div>
     </header>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#contact">Contact Info</a>
-      <a href="#specials">Specials</a>
-      <a href="sales.html">Sales</a>
+    <nav> <!-- navigation bar-->
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Info</a></li>
+        <li><a href="specials.html">Specials</a></li>
+        <li><a href="sales.html">Sales</a></li>
+      </ul>
     </nav>
 
 
@@ -33,17 +37,22 @@
       <fieldset>
         <legend>Salmon Cookies</legend>
 
-        <label for="name">Location Name</label> <!-- input field for the name -->
-        <input type="text" name="name" />
-
-        <label for="minCust">Min. Customers/hr</label>
-        <input type="text" name="minCust" />
-
-        <label for="maxCust">Max. Customers/hr</label>
-        <input type="text" name="maxCust" />
-
-        <label for="cookiesPerPerson">Cookies per Person</label>
-        <input type="text" name="cookiesPerPerson" />
+        <div class="input">
+          <label for="name">Location Name</label> <!-- input field for the name -->
+          <input type="text" name="name" />
+        </div>
+        <div class="input">
+          <label for="minCust">Min. Customers/hr</label>
+          <input type="text" name="minCust" />
+        </div>
+        <div class="input">
+          <label for="maxCust">Max. Customers/hr</label>
+          <input type="text" name="maxCust" />
+        </div>
+        <div class="input">
+          <label for="cookiesPerPerson">Cookies per Person</label>
+          <input type="text" name="cookiesPerPerson" />
+        </div>
 
         <button type="submitLocation" name="button">Add Location</button>
 
@@ -56,12 +65,11 @@
         </table>
       </fieldset>
     </form>
-    
+
 
     <div id="lists"></div>
 
     <script src ="js\app.js" type="text/javascript"></script>
-    <script src ="js\sales.js" type="text/javascript"></script>
 
   </body>
 </html>
