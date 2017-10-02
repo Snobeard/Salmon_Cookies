@@ -3,8 +3,15 @@
   padding: 0px;
   margin: 0px;
 }
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 body {
   background-image: url("img/water.jpg");
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 100px;
 }
 body, html {
   min-width: 850px;
@@ -17,7 +24,7 @@ h1 {
   min-width: 258px;
   font-family: 'Indie Flower';
 }
-h2 {
+header h2 {
   color:aliceblue;
   position: absolute;
   min-width: 208px;
@@ -47,7 +54,7 @@ nav {
   height: 40px;
   min-width: 730px;
 }
-ul {
+nav ul {
   display: flex;
   justify-content: center;
 }
@@ -67,7 +74,7 @@ a:hover {
 a:active {
   box-shadow: -0.6px -0.6px 0 1px #4290e2;
 }
-img {
+header img {
   align-self: center;
   max-height: 100px;
 }
@@ -83,7 +90,7 @@ fieldset {
   background-size: auto 100%;
 /*   display: flex; */
   width: 803px;
-  margin: 40px auto;
+  margin: 0px auto;
 }
 legend {
   background-color: salmon;
@@ -93,7 +100,6 @@ legend {
   margin: 5px;
   padding: 4px;
 }
-
 .input {
   display: inline-block;
   width: 171px;
@@ -116,38 +122,96 @@ th {
   border: 1px black solid;
   padding: 5px;
 }
-
-  width: 803px;
-  margin: 40px auto;
-}
-legend {
-  background-color: salmon;
-  border-radius: 9px;
-  color: darkgreen;
-  box-shadow: 0 2px #999;
-  margin: 5px;
-  padding: 4px;
+#sum th {
+  background-color: #3e91da;
+  color: #eaeaea;
 }
 
-.input {
-  display: inline-block;
-  width: 171px;
-  margin-top: 15px;
-  margin-left: 20px;
+
+/* About section */
+#about {
+  border: 5px #d47c59 outset;
+  padding: 20px;
+  background-color: #ce6339;
+  width: 80%;
+  margin: 2% auto;
 }
-button {
-  margin: 10px 0px 30px 20px;
+#about h4 {
+  color: white;
+  font-size: 32px;
+  position: absolute;
+  left: 46%;
+  text-decoration: underline;
 }
-#cookieTable {
-  margin: 20px;
-  border-collapse: collapse;
+#about p {
+  display: inline;
+  color: white;
 }
-td {
-  border: 1px #888 solid;
-  padding: 5px;
+#about img {
+  max-height: 300px;
+  max-width: 532px;
+  width: 42%;
+}
+
+/* Specials Section */
+#specials {
+  border: 5px #d47c59 outset;
+  padding: 20px;
+  background-color: #ce6339;
+  width: 80%;
+  margin: 2% auto;
+}
+.merch {
   text-align: center;
 }
-th {
-  border: 1px black solid;
-  padding: 5px;
+.merch div {
+  display: inline-block;
+  text-align: center;
+  margin: 20px 20px;
+}
+#specials h2 {
+
+  font-family: 'Dancing Script';
+  text-decoration: underline;
+}
+#specials h4 {
+  font-size: 32px;
+  text-decoration: underline;
+  text-align: center;
+}
+#specials img {
+  padding: 15px;
+  border: outset 4px #d47c59;
+}
+
+
+/* Footer */
+footer {
+  box-shadow: 0px 0px 0 4px #665;
+  background-color: #888;
+  z-index: -10;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}
+#contact {
+  text-align: center;
+  margin: 10px auto 5px auto;
+}
+#contact h4 {
+  font-size: 26px;
+  text-decoration: underline;
+}
+#contact h5 {
+  font-size: 17px;
+}
+footer ul {
+  width: 100%;
+  border-top: #555 1px solid;
+  text-align: center;
+}
+footer li {
+  /*border: red 1px solid;*/
+  display: inline-block;
 }
