@@ -63,15 +63,15 @@ li {
   margin: 0px 5px;
   list-style: none;
 }
-a {
+header a {
   text-decoration: none;
   padding: 6px;
   box-shadow: 0.6px 0.6px 0 1px #4290e2;
 }
-a:hover {
+header a:hover {
   background-color: #42ddf2;
 }
-a:active {
+header a:active {
   box-shadow: -0.6px -0.6px 0 1px #4290e2;
 }
 header img {
@@ -155,22 +155,31 @@ th {
 
 /* Specials Section */
 #specials {
-  border: 5px #d47c59 outset;
   padding: 20px;
   background-color: #ce6339;
   width: 80%;
   margin: 2% auto;
+  border: 5px #d47c59 outset;
 }
 .merch {
+  position: relative;
   text-align: center;
 }
-.merch div {
+.merch a {
   display: inline-block;
   text-align: center;
-  margin: 20px 20px;
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+  border: outset 4px #d47c59;
+}
+.merch a:hover {
+  background-color: #da6f44;
+}
+.merch a:active {
+  border: 5px #d47c59 inset;
 }
 #specials h2 {
-
   font-family: 'Dancing Script';
   text-decoration: underline;
 }
@@ -181,7 +190,6 @@ th {
 }
 #specials img {
   padding: 15px;
-  border: outset 4px #d47c59;
 }
 
 
