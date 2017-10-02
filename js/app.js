@@ -165,25 +165,29 @@ function handleSubmit(event) {
   var cpPerson = event.target.cookiesPerPerson.value;
   var id = name.split(' ')[0].charAt(0) + name.split(' ')[1];
   id = id.replace(id.charAt(1), id.charAt(1).toUpperCase());
+  // ^ creates id value based on first character in first name and second part of the name (first character capitalized) ^
 
-  if (!name) {
+  if (!name) { // check: name input has value
     return alert('Please Enter a name.');
   };
-  if (!minCust) {
+
+  if (!minCust) { // check: minimum has value
     return alert('Please specify the \'minimum\' amount of customers per hour.');
-  } else if (isNaN(parseInt(minCust))) {
+  } else if (isNaN(parseInt(minCust))) { // check: minimum is a number value
     return alert('Minimum customers: \'' + minCust + '\' is not the right format\nPlease use an integer.');
   }
-  if (!maxCust) {
+
+  if (!maxCust) { // check: maximum has value
     return alert('Please specify the \'maximum\' amount of customers per hour.');
-  } else if (isNaN(parseInt(maxCust))) {
+  } else if (isNaN(parseInt(maxCust))) { // check: maximum is a number value
     return alert('Maximum customers: \'' + maxCust + '\' is not the right format\nPlease use an integer.');
-  } else if (minCust > maxCust) {
+  } else if (minCust > maxCust) { // check: minimum is less than maximum
     return alert('Error, \'minimum\' customers cannot exceed \'maximum\' customers');
   }
-  if (!cpPerson) {
+
+  if (!cpPerson) { // check: cookies per person has value
     return alert('Please enter an average cookie per customer rate.');
-  } else if (isNaN(parseInt(cpPerson))) {
+  } else if (isNaN(parseInt(cpPerson))) { // check: cookie/person is a number
     return alert('Cookies per customer: \'' + cpPerson + '\' is not the right format\nPlease use an integer.');
   }
 
@@ -210,7 +214,8 @@ function handleSubmit(event) {
   addTotals();
 }
 
-new AddLocation('First and Pike', 23, 65, 6.3, 'pike'); // Constructor('Name', minimum, maximum, cookiesPer, id);
+// Constructor('Name', minimum, maximum, cookiesPer, id);
+new AddLocation('First and Pike', 23, 65, 6.3, 'pike');
 new AddLocation('SeaTac Airport', 3, 24, 1.2, 'airport');
 new AddLocation('Seattle Center', 11, 38, 3.7, 'seaCenter');
 new AddLocation('Capital Hill', 20, 38, 2.3, 'capHill');
@@ -218,6 +223,7 @@ new AddLocation('Alki Beach', 2, 16, 4.6, 'alki');
 
 salmonForm.addEventListener('submit', handleSubmit);
 
+// initiate table
 locations[0].addHeader();
 for (var i in locations) {
   locations[i].getCookies();
